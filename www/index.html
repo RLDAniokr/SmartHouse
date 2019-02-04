@@ -18,13 +18,13 @@
   <meta name="theme-color" content="#2196f3">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>My App</title>
+  <title>RealLab!Smart</title>
   <link rel="stylesheet" href="libs/framework7/css/framework7.min.css">
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="color-theme-green">
     <f7-app :params="f7params">
       <!-- Statusbar -->
       <f7-statusbar></f7-statusbar>
@@ -33,25 +33,28 @@
       <f7-panel left reveal theme-dark>
         <f7-view id="left-panel-view">
           <f7-page>
-            <f7-navbar title="Left Panel"></f7-navbar>
-            <f7-block strong>
+            <f7-navbar title="Меню"></f7-navbar>
+            <!--<f7-block strong>
               <p>Left panel content goes here</p>
-            </f7-block>
-            <f7-block-title>Load page in panel</f7-block-title>
-            <f7-list>
-              <f7-list-item link="/about/" title="About"></f7-list-item>
+            </f7-block> -->
+            <f7-block-title>Группы устройств:</f7-block-title>
+            <!--<f7-list>
+              <f7-list-item link="/themes/" title="themes"></f7-list-item>
               <f7-list-item link="/form/" title="Form"></f7-list-item>
-            </f7-list>
-            <f7-block-title>Load page in main view</f7-block-title>
+            </f7-list> -->
+            <f7-block-title>Настройки:</f7-block-title>
             <f7-list>
-              <f7-list-item link="/about/" title="About" view="#main-view" panel-close></f7-list-item>
-              <f7-list-item link="/form/" title="Form" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/Wi-fi/" title="Wi-fi" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/Account/" title="Аккаунт" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/Devices/" title="Менеджер устройств" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/themes/" title="Темы" view="#main-view" panel-close></f7-list-item>
             </f7-list>
           </f7-page>
         </f7-view>
       </f7-panel>
-
-      <!-- Right Panel -->
+ 
+     <!-- Right Panel -->
+     <!--
       <f7-panel right cover theme-dark>
         <f7-view id="right-panel-view">
           <f7-page>
@@ -61,18 +64,18 @@
             </f7-block>
             <f7-block-title>Load page in panel</f7-block-title>
             <f7-list>
-              <f7-list-item link="/about/" title="About"></f7-list-item>
+              <f7-list-item link="/themes/" title="themes"></f7-list-item>
               <f7-list-item link="/form/" title="Form"></f7-list-item>
             </f7-list>
             <f7-block-title>Load page in main view</f7-block-title>
             <f7-list>
-              <f7-list-item link="/about/" title="About" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/themes/" title="themes" view="#main-view" panel-close></f7-list-item>
               <f7-list-item link="/form/" title="Form" view="#main-view" panel-close></f7-list-item>
             </f7-list>
           </f7-page>
         </f7-view>
       </f7-panel>
-
+    --> 
       <!-- Main View -->
       <f7-view id="main-view" main>
         <f7-page>
@@ -80,21 +83,27 @@
             <f7-nav-left>
               <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="left"></f7-link>
             </f7-nav-left>
-            <f7-nav-title>My App</f7-nav-title>
+            <f7-nav-title>RealLab!Smart</f7-nav-title>
+            <!--
             <f7-nav-right>
               <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="right"></f7-link>
             </f7-nav-right>
+          -->
           </f7-navbar>
+          <!--
           <f7-toolbar>
             <f7-link>Left Link</f7-link>
             <f7-link>Right Link</f7-link>
           </f7-toolbar>
-          <f7-block strong>
-            <p>Here is your blank Framework7 app. Let's see what we have here.</p>
+        -->
+          
+        <f7-block strong>
+            <h2>Датчики:</h2>
           </f7-block>
+          <!--
           <f7-block-title>Navigation</f7-block-title>
           <f7-list>
-            <f7-list-item link="/about/" title="About"></f7-list-item>
+            <f7-list-item link="/themes/" title="themes"></f7-list-item>
             <f7-list-item link="/form/" title="Form"></f7-list-item>
           </f7-list>
           <f7-block-title>Modals</f7-block-title>
@@ -120,12 +129,12 @@
             </f7-row>
           </f7-block>
           <f7-list>
-            <f7-list-item link="/dynamic-route/blog/45/post/125/?foo=bar#about" title="Dynamic Route"></f7-list-item>
+            <f7-list-item link="/dynamic-route/blog/45/post/125/?foo=bar#themes" title="Dynamic Route"></f7-list-item>
             <f7-list-item link="/load-something-that-doesnt-exist/" title="Default Route (404)"></f7-list-item>
           </f7-list>
         </f7-page>
       </f7-view>
-
+    -->
       <!-- Popup -->
       <f7-popup id="popup">
         <f7-view>
@@ -166,20 +175,17 @@
       </f7-login-screen>
     </f7-app>
   </div>
+<
 
-  <!-- About Page Template -->
-  <template id="page-about">
+
+  <!--Страница настройки тем --> 
+  <template id="page-themes">
     <f7-page>
-      <f7-navbar title="About" back-link="Back"></f7-navbar>
-      <f7-block-title>About My App</f7-block-title>
-      <f7-block strong>
-        <p>Here is About page!</p>
-        <p>You can go <f7-link back>back</f7-link>.</p>
-        <p>Mauris posuere sit amet metus id venenatis. Ut ante dolor, tempor nec commodo rutrum, varius at sem. Nullam ac nisi non neque ornare pretium. Nulla mauris mauris, consequat et elementum sit amet, egestas sed orci. In hac habitasse platea dictumst.</p>
-        <p>Fusce eros lectus, accumsan eget mi vel, iaculis tincidunt felis. Nulla tincidunt pharetra sagittis. Fusce in felis eros. Nulla sit amet aliquam lorem, et gravida ipsum. Mauris consectetur nisl non sollicitudin tristique. Praesent vitae metus ac quam rhoncus mattis vel et nisi. Aenean aliquet, felis quis dignissim iaculis, lectus quam tincidunt ligula, et venenatis turpis risus sed lorem. Morbi eu metus elit. Ut vel diam dolor.</p>
-      </f7-block>
+      <f7-navbar title="Themes" back-link="Back"></f7-navbar>
+      <f7-block-title>Выбор цветовой темы</f7-block-title>
     </f7-page>
   </template>
+  
 
   <!-- Form Page Template -->
   <template id="page-form">

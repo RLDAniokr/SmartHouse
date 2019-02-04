@@ -2,8 +2,8 @@
 Framework7.use(Framework7Vue);
 
 // Init Page Components
-Vue.component('page-about', {
-  template: '#page-about'
+Vue.component('page-themes', {
+  template: '#page-themes'
 });
 Vue.component('page-form', {
   template: '#page-form'
@@ -29,8 +29,8 @@ new Vue({
         // App routes
         routes: [
           {
-            path: '/about/',
-            component: 'page-about'
+            path: '/themes/',
+            component: 'page-themes'
           },
           {
             path: '/form/',
