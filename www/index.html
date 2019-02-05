@@ -2,15 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!--
-  Customize this policy to fit your own app's needs. For more guidance, see:
-      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-  Some notes:
-      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-          * Enable inline JS: add 'unsafe-inline' to default-src
-  -->
+ 
   <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,34 +10,32 @@
   <meta name="theme-color" content="#2196f3">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
+
   <title>RealLab!Smart</title>
+
   <link rel="stylesheet" href="libs/framework7/css/framework7.min.css">
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
   <div id="app" class="color-theme-green">
     <f7-app :params="f7params">
-      <!-- Statusbar -->
+      <!-- Статус бар (строка над приложением, заряд батареи, время и т.п.) -->
       <f7-statusbar></f7-statusbar>
 
-      <!-- Left Panel -->
-      <f7-panel left reveal theme-dark>
+      <!-- Левая панель -->
+      <f7-panel left reveal>
         <f7-view id="left-panel-view">
           <f7-page>
             <f7-navbar title="Меню"></f7-navbar>
-            <!--<f7-block strong>
-              <p>Left panel content goes here</p>
-            </f7-block> -->
+            
             <f7-block-title>Группы устройств:</f7-block-title>
-            <!--<f7-list>
-              <f7-list-item link="/themes/" title="themes"></f7-list-item>
-              <f7-list-item link="/form/" title="Form"></f7-list-item>
-            </f7-list> -->
+            
             <f7-block-title>Настройки:</f7-block-title>
             <f7-list>
               <f7-list-item link="/Wi-fi/" title="Wi-fi" view="#main-view" panel-close></f7-list-item>
-              <f7-list-item link="/Account/" title="Аккаунт" view="#main-view" panel-close></f7-list-item>
+              <f7-list-item link="/account/" title="Аккаунт" view="#main-view" panel-close></f7-list-item>
               <f7-list-item link="/Devices/" title="Менеджер устройств" view="#main-view" panel-close></f7-list-item>
               <f7-list-item link="/themes/" title="Темы" view="#main-view" panel-close></f7-list-item>
             </f7-list>
@@ -53,30 +43,7 @@
         </f7-view>
       </f7-panel>
  
-     <!-- Right Panel -->
-     <!--
-      <f7-panel right cover theme-dark>
-        <f7-view id="right-panel-view">
-          <f7-page>
-            <f7-navbar title="Right Panel" sliding></f7-navbar>
-            <f7-block>
-              <p>Right panel content goes here</p>
-            </f7-block>
-            <f7-block-title>Load page in panel</f7-block-title>
-            <f7-list>
-              <f7-list-item link="/themes/" title="themes"></f7-list-item>
-              <f7-list-item link="/form/" title="Form"></f7-list-item>
-            </f7-list>
-            <f7-block-title>Load page in main view</f7-block-title>
-            <f7-list>
-              <f7-list-item link="/themes/" title="themes" view="#main-view" panel-close></f7-list-item>
-              <f7-list-item link="/form/" title="Form" view="#main-view" panel-close></f7-list-item>
-            </f7-list>
-          </f7-page>
-        </f7-view>
-      </f7-panel>
-    --> 
-      <!-- Main View -->
+      <!-- Главное окно -->
       <f7-view id="main-view" main>
         <f7-page>
           <f7-navbar>
@@ -84,248 +51,43 @@
               <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="left"></f7-link>
             </f7-nav-left>
             <f7-nav-title>RealLab!Smart</f7-nav-title>
-            <!--
-            <f7-nav-right>
-              <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="right"></f7-link>
-            </f7-nav-right>
-          -->
           </f7-navbar>
-          <!--
-          <f7-toolbar>
-            <f7-link>Left Link</f7-link>
-            <f7-link>Right Link</f7-link>
-          </f7-toolbar>
-        -->
           
         <f7-block strong>
             <h2>Датчики:</h2>
           </f7-block>
-          <!--
-          <f7-block-title>Navigation</f7-block-title>
-          <f7-list>
-            <f7-list-item link="/themes/" title="themes"></f7-list-item>
-            <f7-list-item link="/form/" title="Form"></f7-list-item>
-          </f7-list>
-          <f7-block-title>Modals</f7-block-title>
-          <f7-block strong>
-            <f7-row>
-              <f7-col width="50">
-                <f7-button fill raised popup-open="#popup">Popup</f7-button>
-              </f7-col>
-              <f7-col width="50">
-                <f7-button fill raised login-screen-open="#login-screen">Login Screen</f7-button>
-              </f7-col>
-            </f7-row>
-          </f7-block>
-          <f7-block-title>Panels</f7-block-title>
-          <f7-block strong>
-            <f7-row>
-              <f7-col width="50">
-                <f7-button fill raised panel-open="left">Left Panel</f7-button>
-              </f7-col>
-              <f7-col width="50">
-                <f7-button fill raised panel-open="right">Right Panel</f7-button>
-              </f7-col>
-            </f7-row>
-          </f7-block>
-          <f7-list>
-            <f7-list-item link="/dynamic-route/blog/45/post/125/?foo=bar#themes" title="Dynamic Route"></f7-list-item>
-            <f7-list-item link="/load-something-that-doesnt-exist/" title="Default Route (404)"></f7-list-item>
-          </f7-list>
         </f7-page>
       </f7-view>
-    -->
-      <!-- Popup -->
-      <f7-popup id="popup">
-        <f7-view>
-          <f7-page>
-            <f7-navbar title="Popup">
-              <f7-nav-right>
-                <f7-link popup-close>Close</f7-link>
-              </f7-nav-right>
-            </f7-navbar>
-            <f7-block>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, architecto. Cupiditate laudantium rem nesciunt numquam, ipsam. Voluptates omnis, a inventore atque ratione aliquam. Omnis iusto nemo quos ullam obcaecati, quod.</f7-block>
-          </f7-page>
-        </f7-view>
-      </f7-popup>
-
-      <!-- Login Screen -->
-      <f7-login-screen id="login-screen">
-        <f7-view>
-          <f7-page login-screen>
-            <f7-login-screen-title>Login</f7-login-screen-title>
-            <f7-list form>
-              <f7-list-item>
-                <f7-label>Username</f7-label>
-                <f7-input name="username" placeholder="Username" type="text"></f7-input>
-              </f7-list-item>
-              <f7-list-item>
-                <f7-label>Password</f7-label>
-                <f7-input name="password" type="password" placeholder="Password"></f7-input>
-              </f7-list-item>
-            </f7-list>
-            <f7-list>
-              <f7-list-button title="Sign In" login-screen-close></f7-list-button>
-              <f7-block-footer>
-                <p>Click Sign In to close Login Screen</p>
-              </f7-block-footer>
-            </f7-list>
-          </f7-page>
-        </f7-view>
-      </f7-login-screen>
     </f7-app>
-  </div>
-<
+ 
+</div>
+
 
 
   <!--Страница настройки тем --> 
   <template id="page-themes">
     <f7-page>
-      <f7-navbar title="Themes" back-link="Back"></f7-navbar>
+      <f7-navbar title="Темы" back-link="Back"></f7-navbar>
       <f7-block-title>Выбор цветовой темы</f7-block-title>
+    </f7-page>
+  </template>
+
+  <!--Настройка Аккаунта --> 
+  <template id="page-account">
+    <f7-page>
+      <f7-navbar title="Аккаунт" back-link="Back"></f7-navbar>
+      <!--<f7-block-title>Выбор цветовой темы</f7-block-title>-->
     </f7-page>
   </template>
   
 
-  <!-- Form Page Template -->
-  <template id="page-form">
-    <f7-page>
-      <f7-navbar title="Form" back-link="Back"></f7-navbar>
-      <f7-block-title>Form Example</f7-block-title>
-      <f7-list form>
-        <f7-list-item>
-          <f7-label>Name</f7-label>
-          <f7-input type="text" placeholder="Name"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>E-mail</f7-label>
-          <f7-input type="email" placeholder="E-mail"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>URL</f7-label>
-          <f7-input type="url" placeholder="URL"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Password</f7-label>
-          <f7-input type="password" placeholder="Password"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Phone</f7-label>
-          <f7-input type="tel" placeholder="Phone"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Gender</f7-label>
-          <f7-input type="select">
-            <option selected>Male</option>
-            <option>Female</option>
-          </f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Birth date</f7-label>
-          <f7-input type="date" placeholder="Birth date" value="2014-04-30"></f7-input>
-        </f7-list-item>
-        <f7-list-item title="Toggle">
-          <f7-toggle slot="after"></f7-toggle>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Slider</f7-label>
-          <f7-input>
-            <f7-range min="0" max="100" value="50" step="1" :label="true"></f7-range>
-          </f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Textarea</f7-label>
-          <f7-input type="textarea" placeholder="Bio"></f7-input>
-        </f7-list-item>
-        <f7-list-item>
-          <f7-label>Resizable</f7-label>
-          <f7-input type="textarea" placeholder="Bio" resizable></f7-input>
-        </f7-list-item>
-      </f7-list>
-
-      <f7-block-title>Checkbox group</f7-block-title>
-      <f7-list form>
-        <f7-list-item v-for="n in 3" :key="n" checkbox name="my-checkbox" :value="n" :title="'Checkbox ' + n"></f7-list-item>
-      </f7-list>
-
-      <f7-block-title>Radio buttons group</f7-block-title>
-      <f7-list form>
-        <f7-list-item v-for="n in 3" :key="n" radio name="my-radio" :checked="n === 1" :value="n" :title="'Radio ' + n"></f7-list-item>
-      </f7-list>
-
-      <f7-block-title>Buttons</f7-block-title>
-      <f7-block strong>
-        <f7-row tag="p">
-          <f7-button class="col">Button</f7-button>
-          <f7-button class="col" fill>Fill</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" raised>Raised</f7-button>
-          <f7-button class="col" raised fill>Raised Fill</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" round>Round</f7-button>
-          <f7-button class="col" round fill>Round Fill</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" outline>Outline</f7-button>
-          <f7-button class="col" round outline>Outline Round</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" small outline>Small</f7-button>
-          <f7-button class="col" small round outline>Small Round</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" small fill>Small</f7-button>
-          <f7-button class="col" small round fill>Small Round</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" big raised>Big</f7-button>
-          <f7-button class="col" big fill raised>Big Fill</f7-button>
-        </f7-row>
-        <f7-row tag="p">
-          <f7-button class="col" big fill raised color="red">Big Red</f7-button>
-          <f7-button class="col" big fill raised color="green">Big Green</f7-button>
-        </f7-row>
-      </f7-block>
-    </f7-page>
-  </template>
-
-  <!-- Dynamic Routing Page Template -->
-  <template id="page-dynamic-routing">
-    <f7-page>
-      <f7-navbar title="Dynamic Route" back-link="Back"></f7-navbar>
-      <f7-block strong>
-        <ul>
-          <li><b>Url:</b> {{$f7route.url}}</li>
-          <li><b>Path:</b> {{$f7route.path}}</li>
-          <li><b>Hash:</b> {{$f7route.hash}}</li>
-          <li><b>Params:</b>
-            <ul>
-              <li v-for="(value, key) in $f7route.params" :key="key"><b>{{key}}:</b> {{value}}</li>
-            </ul>
-          </li>
-          <li><b>Query:</b>
-            <ul>
-              <li v-for="(value, key) in $f7route.query" :key="key"><b>{{key}}:</b> {{value}}</li>
-            </ul>
-          </li>
-          <li><b>Route:</b> {{$f7route.route}}</li>
-        </ul>
-      </f7-block>
-      <f7-block strong>
-        <f7-link @click="$f7router.back()">Go back via Router API</f7-link>
-      </f7-block>
-    </f7-page>
-  </template>
-
-  <!-- Page Not Found Template -->
+  <!-- Страница не найдена -->
   <template id="page-not-found">
     <f7-page>
       <f7-navbar title="Not found" back-link="Back"></f7-navbar>
       <f7-block strong>
-        <p>Sorry</p>
-        <p>Requested content not found.</p>
+        <p>Извините</p>
+        <p>Что-то пошло не так...</p>
       </f7-block>
     </f7-page>
   </template>

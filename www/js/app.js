@@ -5,8 +5,8 @@ Framework7.use(Framework7Vue);
 Vue.component('page-themes', {
   template: '#page-themes'
 });
-Vue.component('page-form', {
-  template: '#page-form'
+Vue.component('page-login-screen', {
+  template: '#page-login-screen'
 });
 Vue.component('page-dynamic-routing', {
   template: '#page-dynamic-routing'
@@ -33,8 +33,8 @@ new Vue({
             component: 'page-themes'
           },
           {
-            path: '/form/',
-            component: 'page-form'
+            path: '/login-screen/',
+            component: 'page-login-screen'
           },
           {
             path: '/dynamic-route/blog/:blogId/post/:postId/',
